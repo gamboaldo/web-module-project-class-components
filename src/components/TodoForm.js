@@ -16,6 +16,9 @@ export default class TodoForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addItem(this.state.input);
+    this.setState({
+      input: "",
+    });
   };
   render() {
     return (
