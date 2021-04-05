@@ -42,12 +42,26 @@ class App extends React.Component {
     });
   };
 
+  addItem = (itemname) => {
+    this.setState({
+      list: [
+        ...this.state.list,
+        {
+          task: itemname,
+          id: Date.now(),
+          completed: false,
+        },
+      ],
+    });
+  };
+
   render() {
+    console.log(this.state.list);
     return (
       <div className="App">
         <div className="header">
-          <h2>Welcome to your Todo App!!!</h2>
-          <Form />
+          <h4>Welcome to your Todo App!!!</h4>
+          <Form addItem={this.addItem} />
         </div>
         <TodoList toggleItem={this.toggleItem} list={this.state.list} />
       </div>
